@@ -1,4 +1,4 @@
-package game
+package main
 
 import (
 	"testing"
@@ -68,8 +68,11 @@ func TestHasTicTacToe(t *testing.T) {
 	}
 
 	for idx, board := range testCase {
+		t.Logf("Testing board #%d\n\n%s\n\n", idx, board.TestBoard.Render())
 		if board.HasTicTacToe != board.TestBoard.HasTicTacToe() {
-			t.Errorf("Board #%d should have returned %t \n%s\n", idx, board.HasTicTacToe, board.TestBoard.Render())
+			t.Errorf("Should have returned %t\n", board.HasTicTacToe)
+		} else {
+			t.Log("Success!!\n")
 		}
 	}
 }
